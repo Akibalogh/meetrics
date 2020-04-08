@@ -1,4 +1,3 @@
----
 db:
   host: localhost
   port: 3306
@@ -10,5 +9,5 @@ db:
   rootDatabase: mysql
 
 google:
-  subject: admin@gmail.com
-  domain: yourdomain.com
+  subject: aki@marketmuse.com
+  domain: marketmuse.com
