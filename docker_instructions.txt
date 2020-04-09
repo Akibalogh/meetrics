@@ -1,0 +1,6 @@
+docker build -t chasdevs/meetrics .
+docker run --rm -e DB_HOST="host.docker.internal" -v `pwd`:/app chasdevs/meetrics
+docker run --rm -e DB_HOST="docker.for.mac.localhost" chasdevs/meetrics
+docker run -it -v --name mysql-server -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=meetrics_mysql_1 mysql
+docker network connect my-net meetrics_mysql_1
+docker run --name phpmyadmin4 --network my-net -d --link meetrics_mysql_1:db -p 8080:80 phpmyadmin/phpmyadmin 
